@@ -1,5 +1,5 @@
 const express = require("express");
-
+const {webAuth} = require("../../auth/index")
 const {Router} = express;
 
 const productosWebRouter =  new Router();

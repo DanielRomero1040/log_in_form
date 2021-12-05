@@ -9,7 +9,7 @@ socket.on("message_back", (data)=>{
 });
 
 const render = (data)=>{
-    let html = data.map( (element)=>{        
+    let html = data[0][entities][chat][undefined].map( (element)=>{        
         return `
         <p class="text-light"> <strong class="text-primary"> ${element.author.nombre} : </strong> ${element.text} -- <span class="text-warning"> ${element.author.id} </span></p>
         `
@@ -28,7 +28,6 @@ document.getElementById("enviar").addEventListener("click", function(e){
             edad: document.getElementById("input").value,
             alias:document.getElementById("input").value,
             avatar: document.getElementById("input").value,
-
         },
         text : document.getElementById("input").value,
                 
@@ -85,3 +84,10 @@ document.getElementById("enviarProductos").addEventListener("click", function(ev
     document.getElementById("thumbnail").value = "";
   });
 
+let loginButton = document.getElementById("login");
+
+loginButton.addEventListener("click", function(e){
+    e.preventDefault();
+    let user = document.getElementById("user");
+    console.log(user.value)
+})

@@ -53,7 +53,7 @@ const newChat = new chat.Chat;
 //------------ require rutas ---------------
 const productsRoute = require("./routes/products");
 const authWebRouter = require('./routes/web/auth.js')
-const homeWebRouter = require('./routes/web/home.js')
+const loginRouter = require('./routes/log/login.js')
 
 //------------- Servidor http --------------
 const http = require("http");
@@ -67,9 +67,9 @@ app.use(express.static(__dirname + "/public"));
 //----------- middlewares y rutas ------------
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("/api/productos", productsRoute);
-app.use("",authWebRouter)
-app.use("",homeWebRouter)    
+app.use(productsRoute);
+//app.use(authWebRouter)
+app.use(loginRouter)
 
 app.use(cookieParser());
 app.use(session({
@@ -81,8 +81,6 @@ app.use(session({
         mongoOptions: advancedOptions
 
     }),
-
-
     secret: "mysecret",
     resave:false,
     saveUninitialized:false

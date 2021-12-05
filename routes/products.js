@@ -9,8 +9,8 @@ const router =  new Router();
 
 //----------------------------------------
 
-router.get("/",(req,res)=>{
-    res.sendFile("public/index.html", {root: "."})
+router.get("/log",(req,res)=>{
+    res.sendFile("public/login.html", {root: "."})
 })
 
 router.get("/api/productos-test",(req,res)=>{
